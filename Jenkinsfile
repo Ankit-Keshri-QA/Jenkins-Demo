@@ -1,40 +1,24 @@
-pipeline {
-    agent any
-    
-    stages {
+node {
+    try {
         stage('Build') {
-            steps {
-                echo 'Building...'
-                // Example: sh 'mvn clean install' (for Maven build)
-            }
+            echo 'Building...'
+            // Example: sh 'mvn clean install'
         }
-        
+
         stage('Test') {
-            steps {
-                echo 'Testing...'
-                // Example: sh 'mvn test' (for running tests)
-            }
+            echo 'Testing...'
+            // Example: sh 'mvn test'
         }
-        
+
         stage('Deploy') {
-            steps {
-                echo 'Deploying...'
-                // Example: sh 'scp target/*.jar user@server:/path/to/deploy' (for deploying)
-            }
+            echo 'Deploying...'
+            // Example: sh 'scp target/*.jar user@server:/path/to/deploy'
         }
-    }
-    
-    post {
-        always {
-            echo 'Pipeline completed.'
-        }
-        
-        success {
-            echo 'Pipeline succeeded!'
-        }
-        
-        failure {
-            echo 'Pipeline failed!'
-        }
+    } catch (Exception e) {
+        currentBuild.result = 'FAILURE'
+        echo 'Pipeline failed!'
+        throw e
+    } finally {
+        echo 'Pipeline completed.'
     }
 }
