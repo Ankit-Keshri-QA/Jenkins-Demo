@@ -1,0 +1,27 @@
+Started by user Ankit Keshri
+Running as SYSTEM
+Building in workspace C:\ProgramData\Jenkins\.jenkins\workspace\GithubJob
+The recommended git tool is: NONE
+No credentials specified
+ > git.exe rev-parse --resolve-git-dir C:\ProgramData\Jenkins\.jenkins\workspace\GithubJob\.git # timeout=10
+Fetching changes from the remote Git repository
+ > git.exe config remote.origin.url https://github.com/Ankit-Keshri-QA/Jenkins-Demo.git # timeout=10
+Fetching upstream changes from https://github.com/Ankit-Keshri-QA/Jenkins-Demo.git
+ > git.exe --version # timeout=10
+ > git --version # 'git version 2.46.0.windows.1'
+ > git.exe fetch --tags --force --progress -- https://github.com/Ankit-Keshri-QA/Jenkins-Demo.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git.exe rev-parse "refs/remotes/origin/main^{commit}" # timeout=10
+Checking out Revision 976be9c59f5ff9bca7620628777739fc0bfe329b (refs/remotes/origin/main)
+ > git.exe config core.sparsecheckout # timeout=10
+ > git.exe checkout -f 976be9c59f5ff9bca7620628777739fc0bfe329b # timeout=10
+Commit message: "Added new Bild file"
+First time build. Skipping changelog.
+[GithubJob] $ cmd /c call C:\Windows\TEMP\jenkins6211870560575674060.bat
+
+C:\ProgramData\Jenkins\.jenkins\workspace\GithubJob>call build.bat 
+
+C:\ProgramData\Jenkins\.jenkins\workspace\GithubJob>echo "Building Project ..." 
+"Building Project ..."
+
+C:\ProgramData\Jenkins\.jenkins\workspace\GithubJob>exit 0 
+Finished: SUCCESS
